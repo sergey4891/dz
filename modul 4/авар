@@ -1,0 +1,11 @@
+from math import pi
+
+class Circle:
+    def __inin__(self, radius):
+        self.radius = radius
+        self.diameter = radius * 2
+        self.area = math.pi*radius**2
+
+circle = Circle(1)
+
+print(circle.radius)
