@@ -1,11 +1,11 @@
 import json
 
 
-class Post(models.Model):
-    title = models.CharField(max_length=100)
-    content = models.TextField()
-    date_posted = models.DateTimeField(auto_now_add=True)
-    author = models.CharField(max_length=100)
+class Post:
+    def __init__(self, title, content, author):
+        self.title = title
+        self.content = content
+        self.author = author
 
     def __str__(self):
         return self.title
@@ -21,7 +21,12 @@ class Post(models.Model):
             json.dump(post_data, json_file)
             
             
-post = Post(title='Заголовок', content='Содержание', author='пользователь'))
+post = Post(title='Заголовок', content='Содержание', author='пользователь')
 
 
 post.save_to_json('post.json')
+
+with open('post.json', 'r') as json_file:
+    fcc_data = json.load(json_file)
+
+print(fcc_data)
