@@ -2,23 +2,13 @@ import json
 
 
 class Post:
-    def __init__(self, title, content, author):
-        self.title = title
-        self.content = content
-        self.author = author
-
-    def __str__(self):
-        return self.title
+    def __init__(self, *args, **kwargs):
+        self.data = kwargs
 
     def save_to_json(self, file_path):
-        post_data = {
-            'title': self.title,
-            'content': self.content,
-            'author': self.author,
-        }
 
         with open(file_path, 'w') as json_file:
-            json.dump(post_data, json_file)
+            json.dump(self.data, json_file)
             
             
 post = Post(title='Заголовок', content='Содержание', author='пользователь')
